@@ -55,7 +55,7 @@ public class SecurityConfig {
             "http://localhost:3000",
             "https://*.vercel.app",
             "https://*.trycloudflare.com",
-            "https://build-green-eight-12.vercel.app"
+            "https://*.onrender.com"
         ));
         config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         config.setAllowedHeaders(List.of("*"));
