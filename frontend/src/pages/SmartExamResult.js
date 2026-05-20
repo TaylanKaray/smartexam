@@ -24,6 +24,12 @@ export default function SmartExamResult() {
   const [weakPopupIndex, setWeakPopupIndex] = useState(0);
   const [weakDismissed, setWeakDismissed] = useState([]);
   const [failDismissed, setFailDismissed] = useState(false);
+  const [toast, setToast] = useState(null);
+
+  const showToast = (msg) => {
+    setToast(msg);
+    setTimeout(() => setToast(null), 3000);
+  };
 
   if (!state?.result) { navigate('/courses'); return null; }
 
@@ -47,6 +53,7 @@ export default function SmartExamResult() {
     if (userId && tId) {
       api.post(`/api/notifications/reminder/${userId}`, { topicId: tId, daysLater }).catch(() => {});
     }
+    showToast(`🔔 ${daysLater} gün sonra hatırlatılacak!`);
     setWeakDismissed(prev => [...prev, weakPopupIndex]);
     setWeakPopupIndex(prev => prev + 1);
   };
@@ -61,11 +68,19 @@ export default function SmartExamResult() {
     if (userId && topicId) {
       api.post(`/api/notifications/reminder/${userId}`, { topicId, daysLater: 3 }).catch(() => {});
     }
+    showToast('🔔 3 gün sonra hatırlatılacak!');
     setFailDismissed(true);
   };
 
   return (
     <div className="min-h-screen bg-gray-50 p-4 sm:p-6">
+
+      {/* Toast bildirimi */}
+      {toast && (
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-[100] bg-gray-800 text-white text-sm font-medium px-5 py-3 rounded-2xl shadow-xl animate-bounce">
+          {toast}
+        </div>
+      )}
 
       {/* Başarısız — konu tekrar ekranı */}
       {isFailed && (
