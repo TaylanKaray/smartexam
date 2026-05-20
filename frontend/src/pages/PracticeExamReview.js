@@ -186,7 +186,7 @@ export default function PracticeExamReview() {
                       <p className="text-slate-300 text-sm leading-relaxed">{exp.text}</p>
                     ) : exp?.type === 'rate_limited' ? (
                       <div className="flex items-center gap-2">
-                        <p className="text-amber-400 text-xs">Günlük limit doldu.</p>
+                        <p className="text-amber-400 text-xs">AI servisi meşgul, biraz bekleyip tekrar deneyin.</p>
                         <button onClick={() => { setExp(p => { const n={...p}; delete n[globalIdx]; return n; }); fetchExplanation(q, globalIdx); }}
                           className="flex items-center gap-1 text-xs text-amber-300 hover:text-amber-200 transition">
                           <RotateCcw size={11} /> Tekrar Dene

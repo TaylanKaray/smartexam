@@ -432,7 +432,7 @@ function QuestionCard({ q, index, userAns, time }) {
                 explanation
               ) : expError === 'rate_limited' ? (
                 <span className="flex flex-col gap-2">
-                  <span className="text-amber-600">⏳ API günlük limit doldu. Biraz bekleyip tekrar deneyin.</span>
+                  <span className="text-amber-600">⏳ AI servisi meşgul. Birkaç saniye bekleyip tekrar deneyin.</span>
                   <button onClick={fetchExplanation}
                     className="self-start text-[11px] font-semibold text-indigo-600 bg-white border border-indigo-200 px-3 py-1 rounded-lg hover:bg-indigo-50 transition">
                     Tekrar Dene
