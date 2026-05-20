@@ -122,6 +122,7 @@ Sadece açıklama metnini yaz, başka bir şey ekleme."""
             return jsonify({"explanation": None, "error": "empty_response"}), 200
         except Exception as e:
             err = str(e)
+            print(f"Gemini error (attempt {attempt}): {err}", flush=True)
             if "429" in err or "RESOURCE_EXHAUSTED" in err:
                 if attempt == 0:
                     _time.sleep(2)
@@ -129,7 +130,7 @@ Sadece açıklama metnini yaz, başka bir şey ekleme."""
                 return jsonify({"explanation": None, "error": "rate_limited"}), 200
             if "timeout" in err.lower() or "deadline" in err.lower():
                 return jsonify({"explanation": None, "error": "rate_limited"}), 200
-            return jsonify({"explanation": None, "error": "api_error"}), 200
+            return jsonify({"explanation": None, "error": err[:200]}), 200
 
     return jsonify({"explanation": None, "error": "rate_limited"}), 200
 
