@@ -1,0 +1,30 @@
+# Node
+frontend/node_modules/
+frontend/build/
+
+# Java
+platform/target/
+platform/.idea/
+platform/*.iml
+
+# Python
+ai-service/__pycache__/
+ai-service/*.pyc
+ai-service/venv/
+
+# Env files
+frontend/.env.local
+frontend/.env.development
+
+# Logs
+*.log
+cloudflared_*.txt
+
+# Windows
+Thumbs.db
+Desktop.ini
+
+# Poster scripts/output
+make_poster.py
+smartexam_poster_final.pdf
+ss_*.png
