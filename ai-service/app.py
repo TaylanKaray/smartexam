@@ -113,8 +113,7 @@ Sadece açıklama metnini yaz, başka bir şey ekleme."""
         try:
             resp = client.models.generate_content(
                 model="gemini-1.5-flash",
-                contents=prompt,
-                config={"timeout": 20}
+                contents=prompt
             )
             explanation = resp.text.strip() if resp.text else None
             if explanation:
