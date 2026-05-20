@@ -112,7 +112,7 @@ Sadece açıklama metnini yaz, başka bir şey ekleme."""
     for attempt in range(2):
         try:
             resp = client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-2.5-flash-preview-05-20",
                 contents=prompt
             )
             explanation = resp.text.strip() if resp.text else None
