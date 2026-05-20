@@ -11,7 +11,6 @@ services:
     dockerfilePath: ./platform/Dockerfile
     dockerContext: ./platform
     plan: free
-    healthCheckPath: /api/health
     envVars:
       - key: DB_HOST
         fromDatabase:
