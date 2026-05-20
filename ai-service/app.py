@@ -112,7 +112,7 @@ Sadece açıklama metnini yaz, başka bir şey ekleme."""
     for attempt in range(2):
         try:
             resp = client.models.generate_content(
-                model="gemini-2.0-flash",
+                model="gemini-1.5-flash",
                 contents=prompt,
                 config={"timeout": 20}
             )
