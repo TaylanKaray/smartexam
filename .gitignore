@@ -28,3 +28,6 @@ Desktop.ini
 make_poster.py
 smartexam_poster_final.pdf
 ss_*.png
+
+# Database dumps
+*.sql
